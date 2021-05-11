@@ -30,13 +30,13 @@ namespace T2DTheme
             }
 
             // -- Fonts -- //
-            if (font != null) ThemeCreator.ThemeCreator.SetGlobalFont(font);
+            if (font != null) ThemeCreator.ThemeCreator.AddFontChange(font);
 
             // -- Colors -- //
             // Black background.
-            ThemeCreator.ThemeCreator.AddGlobalColorSwap(Color.FromArgb(0, 0, 64), Color.Black);
+            ThemeCreator.ThemeCreator.AddColorChange(Color.FromArgb(0, 0, 64), Color.Black);
             // White foreground.
-            ThemeCreator.ThemeCreator.AddGlobalColorSwap(Color.FromArgb(255, 255, 192), Color.White);
+            ThemeCreator.ThemeCreator.AddColorChange(Color.FromArgb(255, 255, 192), Color.White);
         }
 
         protected override void ChangeSettings()
