@@ -37,6 +37,13 @@ namespace T2DTheme
             ThemeCreator.ThemeCreator.AddColorChange(Color.FromArgb(0, 0, 64), Color.Black);
             // White foreground.
             ThemeCreator.ThemeCreator.AddColorChange(Color.FromArgb(255, 255, 192), Color.White);
+
+            // -- Graphics -- //
+            ThemeCreator.ThemeCreator.SetMapTextColor(Color.White);
+            ThemeCreator.ThemeCreator.SetDistanceRulerLineColor(Color.Gray);
+            ThemeCreator.ThemeCreator.SetOrbitColor(Color.Gray);
+            ThemeCreator.ThemeCreator.SetPlanetColor(Color.Gray);
+            ThemeCreator.ThemeCreator.SetStarSystemColor(Color.Gray);
         }
 
         protected override void ChangeSettings()
