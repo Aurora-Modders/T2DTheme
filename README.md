@@ -10,6 +10,8 @@ Changes include:
 2) White text
 3) Font selection options
 
+![T2DTheme](/T2DTheme.png?raw=true)
+
 ## Dependencies
 
 Requires the ThemeCreator patch.
