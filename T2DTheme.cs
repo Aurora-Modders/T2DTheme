@@ -1,9 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
 using HarmonyLib;
+using Lib;
 
 namespace T2DTheme
 {
@@ -35,8 +38,23 @@ namespace T2DTheme
             // -- Colors -- //
             // Black background.
             ThemeCreator.ThemeCreator.AddColorChange(Color.FromArgb(0, 0, 64), Color.Black);
+            // Black Buttons.
+            ThemeCreator.ThemeCreator.AddColorChange(typeof(Button), new ThemeCreator.ColorChange { BackgroundColor = Color.Black });
             // White foreground.
             ThemeCreator.ThemeCreator.AddColorChange(Color.FromArgb(255, 255, 192), Color.White);
+
+            // -- Images -- //
+            var lib = GetDependency<Lib.Lib>("Lib");
+            string imagePath = @"Patches\T2DTheme\Icons\";
+            List<string> icons = Directory.EnumerateFiles(imagePath).ToList();
+            foreach (KeyValuePair<AuroraButton, string> auroraButtons in lib.KnowledgeBase.GetKnownButtonNames())
+            {
+                string iconPath = imagePath + auroraButtons.Value + ".BackgroundImage.png";
+                if (icons.Contains(iconPath))
+                {
+                    ThemeCreator.ThemeCreator.AddImageChange(auroraButtons.Key, iconPath);
+                }
+            }
 
             // -- Graphics -- //
             ThemeCreator.ThemeCreator.SetMapTextColor(Color.White);
